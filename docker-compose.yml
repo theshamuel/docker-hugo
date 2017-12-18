@@ -6,7 +6,7 @@ services:
           hostname: hugo
           restart: always
           container_name: hugo
-
+          network_mode: bridge
           logging:
             driver: json-file
             options:
@@ -22,3 +22,7 @@ services:
               - HUGO_VERSION=0.31.1
               - SITE_NAME=shamuel.com
               - SITE_THEME=landing-page-shamuel
+networks:
+  default:
+    external:
+      name: bridge
