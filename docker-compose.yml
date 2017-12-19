@@ -12,11 +12,12 @@ services:
             options:
                 max-size: "10m"
                 max-file: "5"
-          ports:
-              - "1313:1313"
+          # ports:
+          #     - "1313:1313"
           volumes:
-              - ../landing-page-shamuel:/shamuel.com/themes/landing-page-shamuel
+              - /landing-page-shamuel:/shamuel.com/themes/landing-page-shamuel
               - ./conf/config.toml:/shamuel.com/config.toml:ro
+              - /usr/share/nginx/html:/shamuel.com/public
           environment:
               - TZ=Europe/Moscow
               - HUGO_VERSION=0.31.1
