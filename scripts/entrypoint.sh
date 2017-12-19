@@ -5,9 +5,9 @@ echo "=>Start hugo"
 cp /usr/share/zoneinfo/$TZ /etc/localtime && \
 echo $TZ > /etc/timezone
 hugo version
-hugo new site ${SITE_NAME}1
-mv /${SITE_NAME}1/* /${SITE_NAME}
-rm -rf /${SITE_NAME}1
+hugo new site ${SITE_NAME}_tmp
+mv /${SITE_NAME}_tmp/* /${SITE_NAME}
+rm -rf /${SITE_NAME}_tmp
 cd /${SITE_NAME}
 
-hugo server -D --bind=0.0.0.0
+hugo
