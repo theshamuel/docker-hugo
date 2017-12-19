@@ -1,6 +1,6 @@
 baseurl = "https://shamuel.com"
 languageCode = "en-us"
-title = ""
+title = "Homepage"
 theme = "landing-page-shamuel"
 
 [params]
