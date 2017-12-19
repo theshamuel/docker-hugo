@@ -23,6 +23,26 @@ services:
               - HUGO_VERSION=0.31.1
               - SITE_NAME=shamuel.com
               - SITE_THEME=landing-page-shamuel
+
+      nginx-lp:
+          image: theshamuel/nginx-lelego:latest
+          hostname: nginx-lp
+          restart: always
+          container_name: nginx-lp
+          network_mode: bridge
+          logging:
+            driver: json-file
+            options:
+                max-size: "10m"
+                max-file: "5"
+          ports:
+              - "80:80"
+              - "443:443"
+          volumes:
+              - /usr/share/nginx/html:/usr/share/nginx/html
+          environment:
+              - EMAIL=theshamuel@gmail.com
+              - DOMAIN=shamuel.com
 networks:
   default:
     external:
