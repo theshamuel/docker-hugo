@@ -4,7 +4,7 @@ title = "Homepage"
 theme = "landing-page-shamuel"
 
 [params]
-  description = "This is homepage of Java/Go programmer"
+  description = "This is homepage of back-end developer"
   author = "Alex Gladkikh"
   nickname = "theshamuel"
   [[params.social]]
