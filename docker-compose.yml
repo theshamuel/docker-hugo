@@ -15,14 +15,14 @@ services:
           # ports:
           #     - "1313:1313"
           volumes:
-              - /landing-page-shamuel:/shamuel.com/themes/landing-page-shamuel
-              - ./conf/config.toml:/shamuel.com/config.toml:ro
-              - /usr/share/nginx/html:/shamuel.com/public
+              - /landing-page-shamuel:/<ex.com>/themes/<ex.com.theme>
+              - ./conf/config.toml:/<ex.com>/config.toml:ro
+              - /usr/share/nginx/html:/<ex.com>/public
           environment:
               - TZ=Europe/Moscow
               - HUGO_VERSION=0.31.1
-              - SITE_NAME=shamuel.com
-              - SITE_THEME=landing-page-shamuel
+              - SITE_NAME=<ex.com>
+              - SITE_THEME=<ex.com.theme>
 
       nginx-lp:
           image: theshamuel/nginx-lelego:latest
@@ -41,8 +41,8 @@ services:
           volumes:
               - /usr/share/nginx/html:/usr/share/nginx/html
           environment:
-              - EMAIL=theshamuel@gmail.com
-              - DOMAIN=shamuel.com
+              - EMAIL=<ex@ex.com>
+              - DOMAIN=<ex.com>
 networks:
   default:
     external:
