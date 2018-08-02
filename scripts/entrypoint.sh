@@ -21,7 +21,7 @@ if [ ! -f /blog.${SITE_NAME}/content ]; then
   cd ../
   echo "=>Generate hugo site"
   hugo new site blog.${SITE_NAME}_tmp
-  cp -vf /blog.${SITE_NAME}_tmp/* /blog.${SITE_NAME}
+  cp -vfr /blog.${SITE_NAME}_tmp/* /blog.${SITE_NAME}
   rm -rfr /blog.${SITE_NAME}_tmp
   echo "=>Successfully created blog"
 fi
