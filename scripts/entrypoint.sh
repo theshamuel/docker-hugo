@@ -7,7 +7,7 @@ echo $TZ > /etc/timezone
 if [ ! -f /${SITE_NAME}/content ]; then
   echo "=>Generate hugo site"
   hugo new site ${SITE_NAME}_tmp
-  mv -vf /${SITE_NAME}_tmp/* /${SITE_NAME}
+  cp -vf /${SITE_NAME}_tmp/* /${SITE_NAME}
   rm -rf /${SITE_NAME}_tmp
   echo "=>Successfully created new site"
 fi
@@ -19,7 +19,7 @@ fi
 if [ ! -f /blog.${SITE_NAME}/content ]; then
   echo "=>Generate hugo site"
   hugo new site blog.${SITE_NAME}_tmp
-  mv -vf /blog.${SITE_NAME}_tmp/* /blog.${SITE_NAME}
+  cp -vf /blog.${SITE_NAME}_tmp/* /blog.${SITE_NAME}
   rm -rf /blog.${SITE_NAME}_tmp
   echo "=>Successfully created blog"
 fi
