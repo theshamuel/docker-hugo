@@ -4,10 +4,26 @@ echo "=>Start hugo"
 #set TZ
 cp /usr/share/zoneinfo/$TZ /etc/localtime && \
 echo $TZ > /etc/timezone
-hugo version
-hugo new site ${SITE_NAME}_tmp
-mv /${SITE_NAME}_tmp/* /${SITE_NAME}
-rm -rf /${SITE_NAME}_tmp
-cd /${SITE_NAME}
+if [ ! -f /${SITE_NAME}/content ]; then
+  echo "=>Generate hugo site"
+  hugo new site ${SITE_NAME}_tmp
+  mv -vf /${SITE_NAME}_tmp/* /${SITE_NAME}
+  rm -rf /${SITE_NAME}_tmp
+  echo "=>Successfully created new site"
+fi
+  cd /${SITE_NAME}
+(
+  hugo && hugo server --watch=true
+)&
 
-hugo
+if [ ! -f /blog.${SITE_NAME}/content ]; then
+  echo "=>Generate hugo site"
+  hugo new site blog.${SITE_NAME}_tmp
+  mv -vf /blog.${SITE_NAME}_tmp/* /blog.${SITE_NAME}
+  rm -rf /blog.${SITE_NAME}_tmp
+  echo "=>Successfully created blog"
+fi
+  cd /blog.${SITE_NAME}
+(
+  hugo && hugo server --watch=true
+)&

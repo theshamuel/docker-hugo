@@ -3,7 +3,7 @@ FROM alpine:3.4
 MAINTAINER Alex Gladkikh <theshamuel@gmail.com>
 
 
-ENV HUGO_VERSION=0.31.1
+ENV HUGO_VERSION=0.46
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
 ADD scripts/entrypoint.sh /entrypoint.sh
 RUN apk update && \
@@ -15,6 +15,7 @@ RUN apk update && \
     pip install --upgrade pip && \
     apk add --update --no-cache tzdata openssl && \
     mkdir -p /${SITE_NAME} && \
+    mkdir -p /blog.${SITE_NAME} && \
     curl -Lko /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
     tar -zxf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C /tmp && \
     mkdir -p /usr/local/sbin && \

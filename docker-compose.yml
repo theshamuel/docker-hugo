@@ -4,9 +4,9 @@ services:
           build: .
           image: hugo_shamuel:latest
           hostname: hugo
-          restart: always
+          #restart: always
           container_name: hugo
-          network_mode: bridge
+          #network_mode: bridge
           logging:
             driver: json-file
             options:
@@ -15,12 +15,14 @@ services:
           # ports:
           #     - "1313:1313"
           volumes:
-              - /landing-page-shamuel:/shamuel.com/themes/landing-page-shamuel
-              - ./conf/config.toml:/shamuel.com/config.toml:ro
-              - /usr/share/nginx/html:/shamuel.com/public
+              - ../shamuel.com:/shamuel.com/themes/landing-page-shamuel:ro
+              - ./conf/landing.config.toml:/shamuel.com/config.toml:ro
+              - ../blog.shamuel.com:/blog.shamuel.com/themes/blog-shamuel:ro
+              - ./conf/blog.config.toml:/blog.shamuel.com/config.toml:ro
+              #- /usr/share/nginx/html:/shamuel.com/public
           environment:
               - TZ=Europe/Moscow
-              - HUGO_VERSION=0.31.1
+              - HUGO_VERSION=0.46
               - SITE_NAME=shamuel.com
               - SITE_THEME=landing-page-shamuel
 
@@ -39,11 +41,20 @@ services:
               - "80:80"
               - "443:443"
           volumes:
-              - /usr/share/nginx/html:/usr/share/nginx/html
+              #- /usr/share/nginx/html/shamuel.com:/usr/share/nginx/html/shamuel.com:ro
+              #- /usr/share/nginx/html/blog.shamuel.com:/usr/share/nginx/html/blog.shamuel.com:ro
+              - ../shamuel.com:/usr/share/nginx/html/shamuel.com:ro
+              - ../blog.shamuel.com:/usr/share/nginx/html/blog.shamuel.com:ro
+              - ./conf/shamuel.com.conf:/etc/nginx/conf.d/service-ssl.conf
+              - ./conf/blog.shamuel.com.conf:/etc/nginx/conf.d/blog.shamuel.com.conf  
           environment:
+              - AWS_REGION=
+              - AWS_ACCESS_KEY_ID=
+              - AWS_SECRET_ACCESS_KEY=
+              - LETSENCRYPT=false
               - EMAIL=theshamuel@gmail.com
               - DOMAIN=shamuel.com
-networks:
-  default:
-    external:
-      name: bridge
+# networks:
+#   default:
+#     external:
+#       name: bridge
