@@ -18,6 +18,7 @@ fi
 )&
 
 if [ ! -f /blog.${SITE_NAME}/content ]; then
+  cd ../
   echo "=>Generate hugo site"
   hugo new site blog.${SITE_NAME}_tmp
   cp -vf /blog.${SITE_NAME}_tmp/* /blog.${SITE_NAME}
