@@ -13,9 +13,7 @@ if [ ! -f /${SITE_NAME}/content ]; then
 fi
   cd /${SITE_NAME}
 
-(
-  hugo && hugo server --watch=true
-)&
+hugo && hugo server --watch=true
 
 if [ ! -f /blog.${SITE_NAME}/content ]; then
   cd ../
@@ -26,6 +24,4 @@ if [ ! -f /blog.${SITE_NAME}/content ]; then
   echo "=>Successfully created blog"
 fi
   cd /blog.${SITE_NAME}
-(
-  hugo && hugo server --watch=true
-)&
+hugo && hugo server --watch=true
