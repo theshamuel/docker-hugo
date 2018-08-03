@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-MAINTAINER Alex Gladkikh <theshamuel@gmail.com>
+LABEL maintainer="Alex Gladkikh <theshamuel@gmail.com>"
 
 
 ENV HUGO_VERSION=0.46

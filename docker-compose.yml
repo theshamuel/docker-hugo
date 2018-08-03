@@ -4,9 +4,7 @@ services:
           build: .
           image: hugo_shamuel:latest
           hostname: hugo
-          #restart: always
           container_name: hugo
-          #network_mode: bridge
           logging:
             driver: json-file
             options:
@@ -15,9 +13,9 @@ services:
           # ports:
           #     - "1313:1313"
           volumes:
-              - ../shamuel.com:/shamuel.com/themes/landing-page-shamuel:ro
+              - ../shamuel.com:/shamuel.com/themes/landing-page-shamuel
               - ./conf/landing.config.toml:/shamuel.com/config.toml:ro
-              - ../blog.shamuel.com:/blog.shamuel.com/themes/blog-shamuel:ro
+              - ../blog.shamuel.com:/blog.shamuel.com/themes/blog-shamuel
               - ./conf/blog.config.toml:/blog.shamuel.com/config.toml:ro
               #- /usr/share/nginx/html:/shamuel.com/public
           environment:
@@ -27,11 +25,11 @@ services:
               - SITE_THEME=landing-page-shamuel
 
       nginx-lp:
-          image: theshamuel/nginx-lelego:latest
+          build: ../shamuel-nginx
+          image: shamuel-nginx:latest
           hostname: nginx-lp
           restart: always
           container_name: nginx-lp
-          network_mode: bridge
           logging:
             driver: json-file
             options:
@@ -45,8 +43,6 @@ services:
               #- /usr/share/nginx/html/blog.shamuel.com:/usr/share/nginx/html/blog.shamuel.com:ro
               - ../shamuel.com:/usr/share/nginx/html/shamuel.com:ro
               - ../blog.shamuel.com:/usr/share/nginx/html/blog.shamuel.com:ro
-              - ./conf/shamuel.com.conf:/etc/nginx/conf.d/service-ssl.conf
-              - ./conf/blog.shamuel.com.conf:/etc/nginx/conf.d/blog.shamuel.com.conf  
           environment:
               - AWS_REGION=
               - AWS_ACCESS_KEY_ID=
@@ -54,7 +50,3 @@ services:
               - LETSENCRYPT=false
               - EMAIL=theshamuel@gmail.com
               - DOMAIN=shamuel.com
-# networks:
-#   default:
-#     external:
-#       name: bridge
