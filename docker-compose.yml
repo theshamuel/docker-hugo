@@ -1,10 +1,10 @@
 version: '2'
 services:
-      hugo:
+      hugo-hp:
           build: .
           image: hugo_shamuel:latest
-          hostname: hugo
-          container_name: hugo
+          hostname: hugo-hp
+          container_name: hugo-hp
           logging:
             driver: json-file
             options:
@@ -14,16 +14,34 @@ services:
           #     - "1313:1313"
           volumes:
               - ../shamuel.com:/shamuel.com/themes/landing-page-shamuel
-              - ./conf/landing.config.toml:/shamuel.com/config.toml:ro
-              - ../blog.shamuel.com:/blog.shamuel.com/themes/blog-shamuel
-              - ./conf/blog.config.toml:/blog.shamuel.com/config.toml:ro
+              - ./conf/landing.config.toml:/shamuel.com/themes/config.toml:ro
               #- /usr/share/nginx/html:/shamuel.com/public
           environment:
               - TZ=Europe/Moscow
               - HUGO_VERSION=0.46
               - SITE_NAME=shamuel.com
               - SITE_THEME=landing-page-shamuel
-
+      hugo-blog:
+          build: .
+          image: hugo_shamuel:latest
+          hostname: hugo-blog
+          container_name: hugo-blog
+          logging:
+            driver: json-file
+            options:
+                max-size: "10m"
+                max-file: "5"
+          # ports:
+          #     - "1313:1313"
+          volumes:
+              - ../blog.shamuel.com:/blog.shamuel.com/themes/blog-shamuel
+              - ./conf/blog.config.toml:/blog.shamuel.com/themes/config.toml:ro
+              #- /usr/share/nginx/html:/shamuel.com/public
+          environment:
+              - TZ=Europe/Moscow
+              - HUGO_VERSION=0.46
+              - SITE_NAME=blog.shamuel.com
+              - SITE_THEME=blog-shamuel
       nginx-lp:
           build: ../shamuel-nginx
           image: shamuel-nginx:latest
