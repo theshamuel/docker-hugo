@@ -13,9 +13,9 @@ services:
           # ports:
           #     - "1313:1313"
           volumes:
-              - ../shamuel.com:/shamuel.com/themes/landing-page-shamuel
+              - ../landing-page-shamuel:/shamuel.com/themes/landing-page-shamuel
               - ./conf/landing.config.toml:/shamuel.com/themes/config.toml:ro
-              #- /usr/share/nginx/html:/shamuel.com/public
+              - ../shamuel.com:/shamuel.com/public
           environment:
               - TZ=Europe/Moscow
               - HUGO_VERSION=0.46
@@ -34,9 +34,9 @@ services:
           # ports:
           #     - "1313:1313"
           volumes:
-              - ../blog.shamuel.com:/blog.shamuel.com/themes/blog-shamuel
+              - ../blog-shamuel:/blog.shamuel.com/themes/blog-shamuel
               - ./conf/blog.config.toml:/blog.shamuel.com/themes/config.toml:ro
-              #- /usr/share/nginx/html:/shamuel.com/public
+              - ../blog.shamuel.com:/blog.shamuel.com/public
           environment:
               - TZ=Europe/Moscow
               - HUGO_VERSION=0.46
