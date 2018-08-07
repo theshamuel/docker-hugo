@@ -63,7 +63,7 @@ services:
               #- /usr/share/nginx/html/blog.shamuel.com:/usr/share/nginx/html/blog.shamuel.com:ro
               - ../shamuel.com:/usr/share/nginx/html/shamuel.com
               - ../blog.shamuel.com:/usr/share/nginx/html/blog.shamuel.com
-              - ../certs:/etc/nginx/ssl/certificates
+              - ../ssl:/etc/nginx/ssl/
           environment:
               - AWS_REGION=
               - AWS_ACCESS_KEY_ID=
