@@ -1,10 +1,10 @@
 version: '2'
 services:
-      hugo-hp:
+      hugo-homepage:
           build: .
           image: hugo_shamuel:latest
-          hostname: hugo-hp
-          container_name: hugo-hp
+          hostname: hugo-homepage
+          container_name: hugo-homepage
           logging:
             driver: json-file
             options:
@@ -14,11 +14,11 @@ services:
           #     - "1313:1313"
           volumes:
               - ../landing-page-shamuel:/shamuel.com/themes/landing-page-shamuel
-              - ./conf/landing.config.toml:/shamuel.com/themes/config.toml:ro
+              - ./conf/landing.config.toml:/shamuel.com/config.toml:ro
               - ../shamuel.com:/shamuel.com/public
           environment:
               - TZ=Europe/Moscow
-              - HUGO_VERSION=0.46
+              - HUGO_VERSION=
               - SITE_NAME=shamuel.com
               - SITE_THEME=landing-page-shamuel
       hugo-blog:
@@ -35,19 +35,19 @@ services:
           #     - "1313:1313"
           volumes:
               - ../blog-shamuel:/blog.shamuel.com/themes/blog-shamuel
-              - ./conf/blog.config.toml:/blog.shamuel.com/themes/config.toml:ro
+              - ./conf/blog.config.toml:/blog.shamuel.com/config.toml:ro
               - ../blog.shamuel.com:/blog.shamuel.com/public
           environment:
               - TZ=Europe/Moscow
-              - HUGO_VERSION=0.46
+              - HUGO_VERSION=
               - SITE_NAME=blog.shamuel.com
               - SITE_THEME=blog-shamuel
-      nginx-lp:
+      nginx-web:
           build: ../shamuel-nginx
           image: shamuel-nginx:latest
-          hostname: nginx-lp
+          hostname: nginx-web
           restart: always
-          container_name: nginx-lp
+          container_name: nginx-web
           logging:
             driver: json-file
             options:
@@ -55,17 +55,20 @@ services:
                 max-file: "5"
           ports:
               - "80:80"
+              - "89:89"
+              - "90:90"
               - "443:443"
           volumes:
               #- /usr/share/nginx/html/shamuel.com:/usr/share/nginx/html/shamuel.com:ro
               #- /usr/share/nginx/html/blog.shamuel.com:/usr/share/nginx/html/blog.shamuel.com:ro
-              - ../shamuel.com:/usr/share/nginx/html/shamuel.com:ro
-              - ../blog.shamuel.com:/usr/share/nginx/html/blog.shamuel.com:ro
-              - ../ssl:/etc/nginx/
+              - ../shamuel.com:/usr/share/nginx/html/shamuel.com
+              - ../blog.shamuel.com:/usr/share/nginx/html/blog.shamuel.com
+              - ../certs:/etc/nginx/ssl/certificates
           environment:
               - AWS_REGION=
               - AWS_ACCESS_KEY_ID=
               - AWS_SECRET_ACCESS_KEY=
               - LETSENCRYPT=false
+              - EXISTCERTS=true
               - EMAIL=theshamuel@gmail.com
               - DOMAIN=shamuel.com

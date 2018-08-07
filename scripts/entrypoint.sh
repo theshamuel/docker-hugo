@@ -12,6 +12,5 @@ if [ ! -f /${SITE_NAME}/content ]; then
   rm -rf /${SITE_NAME}_tmp
   echo "=>Successfully created new site"
 fi
-  cd /${SITE_NAME}
-
-hugo -v
+ 
+hugo -w -s /${SITE_NAME}

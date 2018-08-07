@@ -1,21 +1,12 @@
 baseurl = "https://blog.shamuel.com"
 languageCode = "en-us"
-title = "Blog"
-theme = "landing-page-shamuel"
+title = "Blog of @theshamuel"
+theme = "blog-shamuel"
+Paginate = 10
 
 [params]
-  description = "This is test page"
-  author = "Alex Gladkikh"
-  nickname = "theshamuel"
-  [[params.social]]
-    title = "email"
-    icon = "envelope-o"
-    url = "mailto:theshamuel@gmail.com"
-  [[params.social]]
-    title = "github"
-    icon = "github"
-    url = "https://github.com/theshamuel/"
-  [[params.social]]
-    title = "linkedin"
-    icon = "linkedin"
-    url = "https://www.linkedin.com/in/alex-gladkikh-767a15115/"
+  twitterName = "theshamuel"
+  githubName = "theshamuel"
+  linkedinName = "alex-gladkikh-767a15115"
+  #description = ""
+  #google_analytics = "UA-xxxxxx-xx"
