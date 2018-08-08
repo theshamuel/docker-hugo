@@ -1,12 +1,37 @@
-baseurl = "https://blog.shamuel.com"
-languageCode = "en-us"
-title = "Blog of @theshamuel"
-theme = "blog-shamuel"
-Paginate = 10
+## Basic Configuration
+baseurl = "https://blog.shamuel.com/"
+languageCode = "en"
 
+theme = "blog-shamuel"
+
+## Site Settings
 [params]
-  twitterName = "theshamuel"
-  githubName = "theshamuel"
-  linkedinName = "alex-gladkikh-767a15115"
-  #description = ""
-  #google_analytics = "UA-xxxxxx-xx"
+    author = "@theshamuel"
+    title = "theshamuel"
+    description = "Просто блог"
+    authorimage = "/img/hugo.png"
+    dateformat = "Jan 2, 2006"
+    highlightjs = true
+    highlightjsstyle = "github"
+    # please choose either GraphComment or Disqus
+
+## Social Accounts
+[params.social]
+    github = "theshamuel"
+    xing = "Alex_Gladkikh"
+    linkedin = "alex-gladkikh-767a15115"
+    twitter = "theshamuel"
+    facebook = "100013211986136"
+    email = "theshamuel@gmail.com"
+
+## Main Menu
+[[menu.main]]
+    name = "Posts"
+    weight = 100
+    identifier = "posts"
+    url = "/posts/"
+[[menu.main]]
+    name = "About"
+    identifier = "about"
+    weight = 300
+    url = "/about/"
