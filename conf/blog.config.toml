@@ -8,12 +8,11 @@ theme = "blog-shamuel"
 [params]
     author = "@theshamuel"
     title = "theshamuel"
-    description = "Просто блог"
+    description = "Заметки на околокомпьютерные темы и не только"
     authorimage = "/img/hugo.png"
     dateformat = "Jan 2, 2006"
     highlightjs = true
     highlightjsstyle = "github"
-    # please choose either GraphComment or Disqus
 
 ## Social Accounts
 [params.social]
@@ -26,12 +25,12 @@ theme = "blog-shamuel"
 
 ## Main Menu
 [[menu.main]]
-    name = "Posts"
+    name = "Домой"
     weight = 100
-    identifier = "posts"
-    url = "/posts/"
+    identifier = ""
+    url = "/"
 [[menu.main]]
-    name = "About"
-    identifier = "about"
+    name = "О себе"
+    identifier = ""
     weight = 300
-    url = "/about/"
+    url = "http://shamuel.com"
