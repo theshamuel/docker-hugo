@@ -22,5 +22,5 @@ theme = "landing-page-shamuel"
 
   [[params.social]]
     title = "blog"
-    icon = "book-open"
-    url = "https://www.blog.shamuel.com/"
+    icon = "pencil"
+    url = "https://blog.shamuel.com/"
