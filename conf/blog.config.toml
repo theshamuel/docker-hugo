@@ -8,7 +8,7 @@ theme = "blog-shamuel"
 [params]
     author = "@theshamuel"
     title = "theshamuel"
-    description = "Заметки на околокомпьютерные темы и не только"
+    description = "Заметки на технические темы и не только"
     authorimage = "/img/hugo.png"
     dateformat = "Jan 2, 2006"
     highlightjs = true
