@@ -19,3 +19,8 @@ theme = "landing-page-shamuel"
     title = "linkedin"
     icon = "linkedin"
     url = "https://www.linkedin.com/in/alex-gladkikh-767a15115/"
+
+  [[params.social]]
+    title = "blog"
+    icon = "book-open"
+    url = "https://www.blog.shamuel.com/"
