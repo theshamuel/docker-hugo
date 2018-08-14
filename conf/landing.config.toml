@@ -2,6 +2,8 @@ baseurl = "https://shamuel.com"
 languageCode = "en-us"
 title = "Homepage"
 theme = "landing-page-shamuel"
+enableRobotsTXT = true
+canonifyURLs = true
 
 [params]
   description = "This is homepage of Java back-end developer"

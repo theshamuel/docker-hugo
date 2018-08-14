@@ -3,6 +3,8 @@ baseurl = "https://blog.shamuel.com/"
 languageCode = "en"
 
 theme = "blog-shamuel"
+enableRobotsTXT = true
+canonifyURLs = true
 
 ## Site Settings
 [params]
