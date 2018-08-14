@@ -3,8 +3,9 @@ baseurl = "https://blog.shamuel.com/"
 languageCode = "en"
 
 theme = "blog-shamuel"
-enableRobotsTXT = true
-canonifyURLs = true
+enableRobotsTXT=true
+canonifyURLs=true
+googleAnalytics="UA-123954998-1"
 
 ## Site Settings
 [params]
