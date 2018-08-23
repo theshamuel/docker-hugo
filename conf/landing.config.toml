@@ -1,6 +1,6 @@
 baseurl = "https://shamuel.com"
 languageCode = "en-us"
-title = "Homepage"
+title = "Homepage of @theshamuel"
 theme = "landing-page-shamuel"
 enableRobotsTXT = true
 canonifyURLs = true

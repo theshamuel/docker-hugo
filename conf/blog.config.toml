@@ -1,7 +1,7 @@
 ## Basic Configuration
 baseurl = "https://blog.shamuel.com/"
 languageCode = "en"
-
+title = "Blog of @theshamuel"
 theme = "blog-shamuel"
 enableRobotsTXT=true
 canonifyURLs=true
