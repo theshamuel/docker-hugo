@@ -37,6 +37,7 @@ services:
               - ../blog-shamuel:/blog.shamuel.com/themes/blog-shamuel
               - ./conf/blog.config.toml:/blog.shamuel.com/config.toml:ro
               - ../blog.shamuel.com:/blog.shamuel.com/public
+              - ../blog-content:/blog.shamuel.com/content
           environment:
               - TZ=Europe/Moscow
               - HUGO_VERSION=
